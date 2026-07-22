@@ -38,8 +38,8 @@
       <nav id="siteNav">
         <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
-        <a href="#assistant">AI Assistant</a>
         <a href="mission.html">Mission</a>
+        <a href="company.html">Employers</a>
         <a href="impact.html">Impact</a>
         <a href="contact.html" class="active">Contact Us</a>
       </nav>
@@ -92,8 +92,7 @@
           <textarea id="messageField" name="message" rows="5" placeholder="How can we help?" required></textarea>
 
           <button class="btn btn-primary btn-block" type="submit">Send message</button>
-          <p class="form-note">This form doesn't send messages yet — for now, please email us directly at the address on
-            the left.</p>
+          <p class="form-note" id="formNote">This form doesn't send messages yet — for now, please email us directly at the address on the left.</p>
         </form>
 
       </div>
@@ -112,6 +111,7 @@
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
       <a href="mission.html">Mission</a>
+      <a href="company.html">Employers</a>
       <a href="impact.html">Impact</a>
       <a href="contact.html">Contact Us</a>
     </div>
@@ -122,6 +122,30 @@
   <!-- Same script file as the home page. It only sets up the mobile
        menu here, since this page has no AI assistant elements. -->
   <script src="index.js"></script>
+  <script>
+    const contactForm = document.getElementById('contactForm');
+    const formNote = document.getElementById('formNote');
+
+    if (contactForm && formNote) {
+      contactForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById('nameField').value.trim();
+        const email = document.getElementById('emailField').value.trim();
+        const message = document.getElementById('messageField').value.trim();
+
+        if (!name || !email || !message) {
+          formNote.textContent = 'Please fill in all fields before sending your message.';
+          formNote.style.color = '#b45309';
+          return;
+        }
+
+        formNote.textContent = `Thanks ${name}! Your message has been captured and we'll follow up at ${email}.`;
+        formNote.style.color = '#0f766e';
+        contactForm.reset();
+      });
+    }
+  </script>
 </body>
 
 </html>

@@ -385,14 +385,19 @@ main section {
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    background: var(--blue-pale);
+    background: #fefbf0;
     border: 1px solid var(--border);
     border-radius: 8px;
-    color: var(--text);
+    color: var(--navy);
     font-family: var(--font-body);
     font-size: 0.94rem;
     padding: 0.75rem;
     margin-bottom: 1.1rem;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #7a6b3a;
 }
 
 .contact-form input:focus,
