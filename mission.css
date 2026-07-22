@@ -279,7 +279,7 @@ footer {
     gap: 28px;
     padding: 42px max(24px, calc((100% - 1152px) / 2));
     color: #dbeafe;
-    background: #102d59;
+    background: #050505;
 }
 
 .site-footer h3 {
